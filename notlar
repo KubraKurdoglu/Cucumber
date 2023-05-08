@@ -1,1 +1,13 @@
 Target==> projedeki kodlarin kopyasini tutuyor
+
+#day31
+
+#Background==>Classlarımızda kullandığımız @Before gibi burada kullandığımız her scenario'dan önce Background yapısı çalışır
+#Background koymasa idik, tum yazdigimiz herseyi ayni sayfada aratacakti. yani, SeleniumJavaSql seklinde anlatacakti.
+
+
+ #Feature file'da birden fazla ürün aratmak için her seferinde yeni bir method oluşturmak gerekir.
+  #Dolayısıyla stepdefinition class'ında çok fazla method oluşturmuş oluruz
+  #Tek bir parametreli method oluşturup bunun üstesinden gelebiliriz.
+     #Bunun için feature file'da aratmak istediğimiz metni " " tırnak içinde yazarsak stepdefinition class'ında bize
+  #parametleri method oluşturur.

@@ -3,11 +3,13 @@ package techproed.stepDefinitions;
 import com.fasterxml.jackson.databind.deser.DataFormatReaders;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import techproed.pages.AmazonPage;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
+import techproed.utilities.ReusableMethods;
 
 public class AmazonStepDefinition {
     AmazonPage amazonPage;//burda deger atamasi yapmadi cunku her bir test calistiginda obbjeye atama yapacakti
@@ -45,5 +47,16 @@ public class AmazonStepDefinition {
     public void arama_kutusunda_java_aratir() {
         amazonPage = new AmazonPage();
         amazonPage.aramaKutusu.sendKeys("Java", Keys.ENTER);
+    }
+
+    @Then("arama_kutusunda_{string}_aratir")
+    public void arama_kutusunda__aratir(String arananMetin) {
+        amazonPage = new AmazonPage();
+        amazonPage.aramaKutusu.sendKeys(arananMetin, Keys.ENTER);
+    }
+
+    @And("kullanici {int} saniye bekler")
+    public void kullaniciSaniyeBekler(int saniye) {
+        ReusableMethods.bekle(saniye);
     }
 }
