@@ -13,4 +13,7 @@ public class GooglePage {
     @FindBy(name = "q")
     public WebElement aramaKutusu;
 
+
+    @FindBy(xpath = "//div[text()='Tümünü kabul et']")
+    public WebElement cookies;
 }

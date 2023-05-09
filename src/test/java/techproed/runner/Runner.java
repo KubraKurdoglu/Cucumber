@@ -15,19 +15,35 @@ senaryoyu çalıştırabiliriz.
 //Cucumber il eJUnit'in entegre olmasini saglayan test calistirci notasyonudur.
 @RunWith(Cucumber.class)
 
-//Senaryolarin nerede ve nasil calisacagi, hangi raporu kullanacagi ile alakali secenekleri ayarlariz.
+//Seneryoların nerede ve nasıl çalışacağı, hangi raporu kullanacağıyla alakalı seçenekleri ayarlarız
+@CucumberOptions(plugin = {"pretty","html:src/test/resources/features/htmlReport/cucumbertc3.html",
+                            "json:src/test/resources/features/htmlReport/cucumber.json",
+                            "junit:src/test/resources/features/htmlReport/cucumber.xml"},
 
-@CucumberOptions(features = "src/test/resources/features/day30_IlkFaeture",
-                  glue = {"techproed/stepDefinitions"},//bu parametre ile kodlarimizi yazdigimiz stepdefinition
-                                                      //class'inin package'ini belirtiriz
-        tags = "@gr1")
+
+        //plugin parametresi ile pretty ifadesi kullanılırsa konsolda scenario'lar ile bilgi gösterir
+        features = "src/test/resources/features",
+        glue = {"techproed/stepDefinitions"},//Bu parametre ile kodlarımızı yazdığımız stepDefinition
+        //class'ının packege'ını belirtiriz
+
+
+        tags = "@tc3",
+        dryRun = false,
+
+        //dryRun=false Test adımlarını kontrol eder ve browser'ı çalıştırır
+        //dryRun=True Test adımlarını sadece kontrol eder
+        //default olarak false'tur
+
+        monochrome = true//pretty ifadesinden sonra monochrome = true kullanırsak senerio adımlarını tekrenk olark siyah gösterir
+        //monochrome = false kullanırsak renkli gösterir
+        //default false
+)
 
 /*
         features ===> features'ların olduğu package yolunu ver(ContentRoot)
         glue ====> stepDefinition'ların olduğu package yolunu ver(Source Root)
         tags ====> çalıştırmak istediğin grubu yaz
  */
-
 
 //tags'lerde benzer ada sahip tag'lerden hangisinin calisacgaini belirlemek icin "and" ve "or" kullaniriz
 //ornegin hem "sqla" hem "gr1" tagina sahip olani calistirmak istersek "@gr1 and @sql" kullanmaliyiz.

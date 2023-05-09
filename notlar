@@ -11,3 +11,21 @@ Target==> projedeki kodlarin kopyasini tutuyor
   #Tek bir parametreli method oluşturup bunun üstesinden gelebiliriz.
      #Bunun için feature file'da aratmak istediğimiz metni " " tırnak içinde yazarsak stepdefinition class'ında bize
   #parametleri method oluşturur.
+
+  #day32 ==> dryRun==> ile adimlar uyumlu mu uyumsuz mu diy ebakiyoruz
+
+  // dryRun default olarak false'dur.
+  // true dersek testlerimizi gercekte calistirmaz
+  // sadece calistiriyormus gibi kontrol eder.
+  // ornegin true'da sayfaya gitmez.
+  // false yaparsak driver acilir ve sayfaya gider
+
+  //plugin = {"pretty"},== seklinde yazarsak, konsolda scenario'lar ile birlikte bilgide gosterir.
+  // monochrome = false==> pretty ile glen bilgilerin renkli olmasini saglar.
+  // monochrome = true==> pretty ile gelen bilgilerin koyu renk olmasini saglar.
+  //(plugin = {"pretty", "html:"}==> buraya "html" eklayerek raporlarimizi nerde gormek istedigimizi belirtebiliriz
+  //htmlReport==> diye bir directory olusturup, path'ini "html:src/test/resources/features/htmlReport"==> path'ini bu
+  //sekilde ekleriz !!!! adresin sonuna "/cucumber/html"==>eklersen hem isim vermis olursun, hemde "html" formati yaparsin.
+
+  //"/cucumber/html"==> bu isme bir de her tags icin ek bir kelime ekleyebilirsin, cunku yoksa her yani tags de ustune yazar
+  //"/cucumbertc3/html"
