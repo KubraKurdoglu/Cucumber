@@ -14,8 +14,9 @@
 #tabloya girilecek tum bilgileri "tab" tusu ile giriyor. tek tek locate almiyor
 
       Scenario Outline: TC01_DataTablesda_Veri_Girisi
+        But kullanici 2 saniye bekler
         Then kullanici_sayfadaki_tabloda_new_butonuna_basar
-        And kullanici 2 saniye bekler
+
         When cikan_pencerede_verilen_bilgileri_girelim "<firstname>","<lastname>","<position>","<office>","<extention>","<date>","<salary>"
         But kullanici 2 saniye bekler
         And kullanici_create_butonuna_basar

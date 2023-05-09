@@ -11,10 +11,6 @@ import static org.junit.Assert.assertTrue;
 public class DataTableStepDefinition {
 
     DataTablePage dataTablePage;
-    @Then("kullanici_sayfadaki_tabloda_new_butonuna_basar")
-    public void kullanici_sayfadaki_tabloda_new_butonuna_basar() {
-        dataTablePage.newButton.click();
-    }
 
     @When("cikan_pencerede_verilen_bilgileri_girelim {string},{string},{string},{string},{string},{string},{string}")
     public void cikan_pencerede_verilen_bilgileri_girelim(String firstname, String lastname, String position,
@@ -44,5 +40,12 @@ public class DataTableStepDefinition {
         dataTablePage = new DataTablePage();
         assertTrue(dataTablePage.verify.getText().contains(firstname));
 
+    }
+
+
+    @Then("kullanici_sayfadaki_tabloda_new_butonuna_basar")
+    public void kullanici_sayfadaki_tabloda_new_butonuna_basar() {
+        dataTablePage = new DataTablePage();
+        dataTablePage.newButton.click();
     }
 }

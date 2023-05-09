@@ -11,7 +11,7 @@ public class DataTablePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "(//*[@type='button'])[1]")
+    @FindBy(xpath = "//button[@class='dt-button buttons-create']")
     public WebElement newButton;
 
     @FindBy(xpath = "/*[@id='DTE_Field_first_name']")
