@@ -5,8 +5,11 @@ Feature:US001_Google_Search
 
   Scenario Outline: Google_Aramalari
     * kullanici_cookiesi_kapatir
+    * kullanici 2 saniye bekler
     * kullanici googleda "<aranacakKelime>" aratacaktir
+    * kullanici 2 saniye bekler
     * basligin "<aranacakKelime>" icerdigini dogrulayacaktir
+    * kullanici 2 saniye bekler
     * sayfayi_kapatir
     Examples:
       | aranacakKelime |

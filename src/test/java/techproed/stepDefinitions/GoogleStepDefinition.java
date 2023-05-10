@@ -7,6 +7,7 @@ import techproed.pages.GooglePage;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GoogleStepDefinition {
@@ -38,7 +39,7 @@ public class GoogleStepDefinition {
 
     @Given("basligin {string} icerdigini dogrulayacaktir")
     public void basligin_icerdigini_dogrulayacaktir(String string) {
-        assertTrue(Driver.getDriver().getTitle().contains(string));
+        assertTrue(Driver.getDriver().getTitle().contains(ConfigReader.getProperty(string)));
     }
 
 

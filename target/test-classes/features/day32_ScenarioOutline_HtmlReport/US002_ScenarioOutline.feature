@@ -20,6 +20,7 @@
         When cikan_pencerede_verilen_bilgileri_girelim "<firstname>","<lastname>","<position>","<office>","<extention>","<date>","<salary>"
         But kullanici 2 saniye bekler
         And kullanici_create_butonuna_basar
+        And kullanici 2 saniye bekler
         And kullanici_search_bolumune_"<firstname>"_bilgisi_girer
         And kullanici_"<firstname>"ile_basarili_bir_sekilde_giris_yapildigini_dogrular
         But kullanici 2 saniye bekler
