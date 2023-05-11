@@ -1,10 +1,14 @@
 package techproed.stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+import techproed.pages.AmazonPage;
 import techproed.pages.DataTablePage;
+import techproed.utilities.Driver;
+import techproed.utilities.ReusableMethods;
 
 import static org.junit.Assert.assertTrue;
 
@@ -47,5 +51,29 @@ public class DataTableStepDefinition {
     public void kullanici_sayfadaki_tabloda_new_butonuna_basar() {
         dataTablePage = new DataTablePage();
         dataTablePage.newButton.click();
+    }
+
+
+    /*
+     #DataTable; scenario'lardaki satır ve sütun için bir veri tablosu temsil eder.
+#Bunun için kullanılmak istenen her stepten sonra yukarıdaki örnekteki bir tablo yapısı oluştururuz.
+#ve bu stepin methodunu stepDefinition'da oluşturduğumuz zaman buradaki verileri alabilmemiz için
+#oluşturulan methoda DataTable parametresi eklenir.
+#Bu parametre ismi ile bir list oluşturulabilir.
+#yada direkt asList() methodu ile row'lara ulaşabiliriz.
+
+     */
+    @And("kullanici_verilen_urunleri_aratir")
+    public void kullanici_verilen_urunleri_aratir(DataTable data) {
+
+        AmazonPage amazonPage = new AmazonPage();
+        System.out.println(data.asList());
+        for (int i = 1; i <data.asList().size() ; i++) {//1'den baslatti cunku basligi istemiyor.
+            amazonPage.aramaKutusu.sendKeys(data.asList().get(i), Keys.ENTER);
+            ReusableMethods.bekle(2);
+            assertTrue(Driver.getDriver().getTitle().contains(data.asList().get(i)));
+            ReusableMethods.bekle(2);
+            amazonPage.aramaKutusu.clear();
+        }
     }
 }
